@@ -1,0 +1,14 @@
+{
+	"nameUser":"",
+	"firtsName":"",
+	"lastName":"",
+	"gender":"",
+	"dateBirth":"",
+	"career":"",
+	"email":"",
+    "password":"",
+    "phone":"",
+    "address":"",
+	"interestList": []
+	
+}
