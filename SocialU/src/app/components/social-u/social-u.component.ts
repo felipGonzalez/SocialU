@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { RegistryComponent } from '../registry/registry.component';
 import { MatDialog } from '@angular/material';
-import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-social-u',
@@ -22,7 +22,7 @@ export class SocialUComponent implements OnInit {
     
   ]);
 
-  constructor(private dialog: MatDialog, private serve: LoginService) { }
+  constructor(private dialog: MatDialog, private serve: UserService) { }
 
   ngOnInit() {
   }
@@ -30,9 +30,7 @@ export class SocialUComponent implements OnInit {
 
   openModal() { 
     const dialogRef = this.dialog.open(RegistryComponent, {
-      width: "600px",
-      maxWidth : "800px",
-      autoFocus : false,
+      autoFocus : true,
       panelClass: 'myapp-modal'
     });
   }
