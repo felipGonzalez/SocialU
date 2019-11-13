@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { RegistryComponent } from '../registry/registry.component';
 import { MatDialog } from '@angular/material';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-social-u',
@@ -21,7 +22,7 @@ export class SocialUComponent implements OnInit {
     
   ]);
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private serve: LoginService) { }
 
   ngOnInit() {
   }
@@ -34,5 +35,16 @@ export class SocialUComponent implements OnInit {
       autoFocus : false,
       panelClass: 'myapp-modal'
     });
+  }
+
+  loadCompany(){
+   this.serve.login(this.emailFormControl.value, this.passworFormControl.value).subscribe(
+     res =>{
+      
+     },
+     err =>{
+      alert("Error al login");
+     }
+   );
   }
 }

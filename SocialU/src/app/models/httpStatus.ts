@@ -1,0 +1,1 @@
+export const HTTP_URL_REDIS = 'http://192.168.0:3000';
