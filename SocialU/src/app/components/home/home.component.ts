@@ -12,4 +12,12 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  public close() {
+    alert("Boton de salir");
+  }
+
+  public search() {
+    alert("Boton de Buscar");
+  }
+
 }

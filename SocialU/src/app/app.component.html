@@ -1,6 +1,6 @@
-<div *ngIf="isLogin != null">
+<div *ngIf="isLogin">
     <app-home></app-home>
 </div>
-<div *ngIf="isLogin == null">
+<div *ngIf="!isLogin">
     <app-social-u></app-social-u>
 </div>
