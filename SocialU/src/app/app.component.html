@@ -1,2 +1,6 @@
-
-<router-outlet></router-outlet>
+<div *ngIf="isLogin != null">
+    <app-home></app-home>
+</div>
+<div *ngIf="isLogin == null">
+    <app-social-u></app-social-u>
+</div>

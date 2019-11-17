@@ -1,0 +1,15 @@
+.btn{
+    border-radius:0px;
+}
+
+.searchBtn{
+    border-radius: 50%;
+    outline:none;
+}
+
+.searchform{
+    padding-right: 50px;
+}
+.container{
+    padding-top: 5%;
+}

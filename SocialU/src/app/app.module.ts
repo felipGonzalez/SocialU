@@ -25,13 +25,21 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { SocialUComponent } from './components/social-u/social-u.component';
 import { RegistryComponent } from './components/registry/registry.component';
 import { HomeComponent } from './components/home/home.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { ThemesComponent } from './components/themes/themes.component';
+import { FriendsComponent } from './components/friends/friends.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SocialUComponent,
     RegistryComponent,
-    HomeComponent
+    HomeComponent,
+    HomepageComponent,
+    ThemesComponent,
+    FriendsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
