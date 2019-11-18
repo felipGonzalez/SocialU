@@ -1,1 +1,65 @@
-<p>homepage works!</p>
+<div class="weather">
+    <a class="weatherwidget-io" href="https://forecast7.com/es/5d54n73d36/tunja/" data-label_1="TUNJA"
+        data-label_2="Clima" data-theme="original">TUNJA Clima</a>
+    <script>
+        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+    </script>
+</div>
+<div class="container">
+    <div class="addPublication">
+        <div class="card bg-secondary text-light">
+            <div class="cad-title">
+                Añadir publicación
+            </div>
+            <div class="card-body">
+                This is some text within a card body.
+            </div>
+        </div>
+    </div>
+    <div class="showPublication">
+        Ultimas publicaciones
+        <div class="container">
+            <div class="row">
+                <div class="col align-self-center">
+                    <ul class="event-list">
+                        <li>
+                            <time datetime="2014-07-20">
+                                <span class="day">4</span>
+                                <span class="month">Jul</span>
+                                <span class="year">2014</span>
+                                <span class="time">ALL DAY</span>
+                            </time>
+                            <img alt="Independence Day"
+                                src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />
+                            <div class="info">
+                                <h4 class="text-center"><strong>Titulo</strong></h4>
+                                <h5 class="text-center">categoria</h5>
+                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam minus
+                                    perferendis voluptate qui excepturi impedit officia ipsam blanditiis harum, quidem
+                                    repudiandae dicta? Ratione obcaecati eveniet consequuntur consequatur assumenda
+                                    eaque culpa?</p>
+
+                            </div>
+                            <div class="social">
+                                <ul>
+                                    <li class="facebook" style="width:33%;">
+                                        <a (click)="like()">
+                                            <span class="fa fa-thumbs-up"></span>
+                                        </a>
+                                    </li>
+                                    <li class="twitter" style="width:34%;">
+                                        <a (click)="comments()">
+                                            <span class="fa fa-comment"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
