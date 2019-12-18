@@ -1,6 +1,7 @@
 import { ModelInterest } from './ModelInterest'
 
 export class ModelUser {
+
     _id: string;
     nameUser: string;
     firtsName: string;
