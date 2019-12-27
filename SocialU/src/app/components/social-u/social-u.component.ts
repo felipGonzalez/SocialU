@@ -3,6 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { RegistryComponent } from '../registry/registry.component';
 import { MatDialog } from '@angular/material';
 import { UserService } from 'src/app/services/user/user.service';
+import { Router } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-social-u',
@@ -22,7 +24,7 @@ export class SocialUComponent implements OnInit {
     
   ]);
 
-  constructor(private dialog: MatDialog, private serve: UserService) { }
+  constructor(private dialog: MatDialog, private serve: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -35,14 +37,16 @@ export class SocialUComponent implements OnInit {
     });
   }
 
-  loadCompany(){
-   this.serve.login(this.emailFormControl.value, this.passworFormControl.value).subscribe(
+  loadUser(){
+    this.router.navigate(['/home/']);
+   /*this.serve.login(this.emailFormControl.value, this.passworFormControl.value).subscribe(
      res =>{
       
      },
      err =>{
       alert("Error al login");
      }
-   );
+   );*/
+
   }
 }
