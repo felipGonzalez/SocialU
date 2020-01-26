@@ -124,6 +124,7 @@ export class RegistryComponent implements OnInit {
    * saveUser
    */
   public saveUser() {
+    
     console.log(this.user);
     
     this.serve.saveUser(this.user).subscribe(

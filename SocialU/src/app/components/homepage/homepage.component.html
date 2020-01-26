@@ -1,25 +1,87 @@
-<div class="weather">
-    <a class="weatherwidget-io" href="https://forecast7.com/es/5d54n73d36/tunja/" data-label_1="TUNJA"
-        data-label_2="Clima" data-theme="original">TUNJA Clima</a>
-    <script>
-        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
-    </script>
-</div>
 <div class="container">
-    <div class="addPublication">
-        <div class="card bg-secondary text-light">
-            <div class="cad-title">
-                Añadir publicación
-            </div>
-            <div class="card-body">
-                This is some text within a card body.
+    <div class="col-md-8 sticky-top">
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="openModal()">
+            Crear nueva publicación
+        </button>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row" *ngFor="let item of publicationList">
+                <h1 class="my-4">{{item.title}}
+                    <small>{{item.category}}</small>
+                </h1>
+                <div class="card mb-4">
+                    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title">{{item.title}}</h2>
+                        <p class="card-text">{{item.content}}</p>
+                        <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{item.date}}
+                        por: <a href="#">{{item.author}}</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="showPublication">
-        Ultimas publicaciones
-        <div class="container">
-            
+        <div class="col-md-4 ">
+            <div class="sticky-top">
+                <div class="card my-4">
+                    <h5 class="card-header">Search</h5>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card my-4">
+                    <h5 class="card-header">Categorias</h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        <a href="#">Web Design</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">HTML</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Freebies</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        <a href="#">JavaScript</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">CSS</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Tutorials</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card my-4">
+                    <h5 class="card-header">El clima</h5>
+                    <div class="card-body">
+                        <a class="weatherwidget-io" href="https://forecast7.com/es/5d54n73d36/tunja/"
+                            data-label_1="TUNJA" data-label_2="WEATHER" data-icons="Climacons Animated" data-days="3"
+                            data-theme="pure">CLIMA TUNJA</a>
+                        <script>
+                            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+                        </script>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

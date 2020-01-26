@@ -29,6 +29,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { ThemesComponent } from './components/themes/themes.component';
 import { FriendsComponent } from './components/friends/friends.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NewPublicacitonComponent } from './new-publicaciton/new-publicaciton.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomepageComponent,
     ThemesComponent,
     FriendsComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewPublicacitonComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +99,6 @@ import { ProfileComponent } from './components/profile/profile.component';
   ],
   providers: [{provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'never'}}],
   bootstrap: [AppComponent],
-  entryComponents:[RegistryComponent]
+  entryComponents:[RegistryComponent, NewPublicacitonComponent]
 })
 export class AppModule { }
