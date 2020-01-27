@@ -13,7 +13,7 @@ export class NewPublicacitonComponent implements OnInit {
   themes: Array<string>;
 
   constructor() {
-    this.publication = new ModelPublication("1", "", "", "Mendez", new Date(), "");
+    this.publication = new ModelPublication("1", "2","", "", "Mendez", new Date(), "arte");
   }
 
   ngOnInit() {
