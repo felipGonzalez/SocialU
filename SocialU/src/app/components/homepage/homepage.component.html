@@ -15,11 +15,18 @@
                     <div class="card-body">
                         <h2 class="card-title">{{item.title}}</h2>
                         <p class="card-text">{{item.content}}</p>
-                        <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                       <div class="row float-right">
+                           <div class="">
+                            <button class="btn btn-outline-success"><i class="fa fa-thumbs-up"></i> Me gusta</button>
+                           </div>
+                           <div class="">
+                            <button class="btn btn-outline-danger"><i class="fa fa-thumbs-down"></i> No me gusta</button>
+                           </div>
+                       </div>
                     </div>
                     <div class="card-footer text-muted">
                         {{item.date}}
-                        por: <a href="#">{{item.author}}</a>
+                        por: <a href="#" (mouseover)="openUser(item.id_user)" >{{item.author}}</a>
                     </div>
                 </div>
             </div>

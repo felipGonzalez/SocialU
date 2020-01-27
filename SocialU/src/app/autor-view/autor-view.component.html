@@ -1,0 +1,28 @@
+<div class="container" >
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="https://image.flaticon.com/icons/png/512/149/149071.png"
+                        class="img-responsive" alt="">
+                </div>
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        {{user.nameUser}}
+                    </div>
+                    <div class="profile-full-name">
+                        {{user.firtsName}}  {{user.lastName}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        {{user.career}}
+                    </div>
+                </div>
+                <div class="profile-userbuttons">
+                    <button type="button" class="btn btn-success btn-sm" (click) ="addUser()">add</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
