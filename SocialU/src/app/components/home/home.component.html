@@ -19,25 +19,19 @@
                 <a class="navbar-brand" [routerLink]="['/homePage']">SOCIAL - U</a>
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item ">
-                        <a class="nav-link" [routerLink]="['/homePage']"><i class="fa fa-home"></i> Inicio <span
+                        <a class="nav-link" [routerLink]="['/home/homePage']"><i class="fa fa-home"></i> Inicio <span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/themes']"><i class="fa fa-book"></i>Temas</a>
+                        <a class="nav-link" [routerLink]="['/home/themes']"><i class="fa fa-book"></i>Temas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/friends']"><i class="fa fa-users"></i> Amigos</a>
+                        <a class="nav-link" [routerLink]="['/home/friends']"><i class="fa fa-users"></i> Amigos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/profile']"><i class="fa fa-id-card"></i> Mi perfil</a>
+                        <a class="nav-link" [routerLink]="['/home/profile']"><i class="fa fa-id-card"></i> Mi perfil</a>
                     </li>
                 </ul>
-                <form class=" searchform nav-item form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
-                    <button class="searchBtn btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </form>
                 <button type="button" class="btn btn-danger form-inline my-2 my-lg-0" (click)="close()">
                     <span class="glyphicon glyphicon-remove"></span>Cerrar sesión
                 </button>
@@ -45,17 +39,10 @@
         </nav>
     </section>
     <section class="route">
-
-       
-
-
-
-        <!--
         <router-outlet></router-outlet>
-        -->
     </section>
     <footer class="bg-dark text-light final fixed-bottom">
-        <div class="footer-copyright text-center py-3">© 2019 Copyright: SOCIAL - U
+        <div class="footer-copyright text-center py-3">© 2020 Copyright: SOCIAL - U
             <i class="fa fa-heart"></i>
         </div>
     </footer>

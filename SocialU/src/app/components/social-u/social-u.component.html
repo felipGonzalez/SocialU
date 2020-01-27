@@ -29,7 +29,7 @@
                                           {{message}}
                                     </div-->
                             <div class="form-group">
-                                <mat-form-field class="full-width" [floatLabel]="never">
+                                <mat-form-field class="full-width">
                                     <input matInput #email placeholder="Ingrese su correo electrónico"
                                         [formControl]="emailFormControl" name="email">
                                     <mat-error
@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="form-group">
-                                <mat-form-field class="full-width" [floatLabel]="never">
+                                <mat-form-field class="full-width">
                                     <input matInput type="password" #password placeholder="Ingrese su Contraseña"
                                         [formControl]="passworFormControl" name="password">
                                     <mat-error

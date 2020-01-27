@@ -9,6 +9,8 @@
         </div>
     </div>
     
+    
+
     <div class="container">
         <div class="card-group vgr-cards">
             <div class="card" *ngFor="let category of categoryList">
@@ -21,7 +23,9 @@
                     <a (click)="showPublications(category._id)" class="btn btn-warning">
                         <i class="fa fa-eye"></i> Ver publicaciones...
                     </a>
+                    <hr style="border-top: 1px solid black;">
                 </div>
+                
             </div>
         </div>
     </div>

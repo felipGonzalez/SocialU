@@ -10,6 +10,7 @@ import { ModelInterest } from 'src/app/models/ModelInterest';
 export class ProfileComponent implements OnInit {
 
   public user: ModelUser;
+  public confirmPass: string;
 
   constructor() {
     this.user = new ModelUser();
@@ -29,6 +30,10 @@ export class ProfileComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  saveData(){
+    alert("guardar cambios");
   }
 
 }
