@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 //Guarda todos los Temas de interes
 router.post('/themeInterest', function(req, res){
     console.log(req.body);
-    saveConsulta(req.body, collectionThemeInterest, (documentos) => {
+    dbConnection.saveConsulta(req.body, collectionThemeInterest, (documentos) => {
       res.send(documentos);
     })
 });

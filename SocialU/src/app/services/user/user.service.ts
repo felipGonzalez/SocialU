@@ -28,6 +28,13 @@ export class UserService {
     return this.http.post<any>(`${HTTP_URL_MONGO}user/saveUser`, user);
   }
 
+   /**
+   * saveCategory
+   */
+  public saveCategory(theme: ModelInterest): Observable<any> {
+    return this.http.post<any>(`${HTTP_URL_MONGO}themeInterest/themeInterest`, theme);
+  }
+
   /**
    * iniciar sesion de usuario
    */

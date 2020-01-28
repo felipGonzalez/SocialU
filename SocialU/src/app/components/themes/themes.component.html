@@ -1,31 +1,27 @@
 <div class="title row">
-        <div class="col-6">
-            <h1>Todas las categorias</h1>
-        </div>
-        <div class="col-6">
-            <button class="btn btn-success" (click) = "newCategory()">
-                <i class="fa fa-plus-circle"></i> Crear categoria
-            </button>
-        </div>
+    <div class="col-6">
+        <h1>Todas las categorias</h1>
     </div>
-    
-    
-
-    <div class="container">
-        <div class="card-group vgr-cards">
-            <div class="card" *ngFor="let category of categoryList">
-                <div class="card-img-body">
-                    <img class="card-img" [src]= "category.urlImg" alt="Card image cap">
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">{{category.title}}</h4>
-                    <p class="card-text">{{category.content}}</p>
-                    <a (click)="showPublications(category._id)" class="btn btn-warning">
-                        <i class="fa fa-eye"></i> Ver publicaciones...
-                    </a>
-                    <hr style="border-top: 1px solid black;">
-                </div>
-                
+    <div class="col-6">
+        <button class="btn btn-success" (click)="newCategory()">
+            <i class="fa fa-plus-circle"></i> Crear categoria
+        </button>
+    </div>
+</div>
+<div class="container">
+    <div class="card-group vgr-cards">
+        <div class="card" *ngFor="let category of categoryList">
+            <div class="card-img-body">
+                <img class="card-img" [src]="category.url" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{category.name}}</h4>
+                <p class="card-text">{{category.description}}</p>
+                <a (click)="showPublications(category._id)" class="btn btn-warning">
+                    <i class="fa fa-eye"></i> Ver publicaciones...
+                </a>
+                <hr style="border-top: 1px solid black;">
             </div>
         </div>
     </div>
+</div>

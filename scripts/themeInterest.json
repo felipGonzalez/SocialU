@@ -1,10 +1,31 @@
 [
-    {"name": "Tecnologia", "description": "Podrás indagar acerca de las últimas novedades de las tecnologías y estar a la vanguardia de la misma en todos los entornos del mundo."},
-    {"name": "Economía", "description": "Sabemos que el mundo gira alrededor del dinero y los recursos con los que con él, las sociedades prosperan surgen y sobreviven en el vasto capitalismo."},
-    {"name": "Politica", "description":"Es la ciencia social que estudia el poder público o del Estado. Promoviendo la participación ciudadana al poseer la capacidad de distribuir y ejecutar el poder según sea necesario para garantizar el bien común en la sociedad. Y como ciudadano tu aporte es importante."},
-    {"name": "Redes sociales", "description":"En este mundo globalizado, el impacto de las estructuras de información desempeña un papel sumamente importante en la toma de decisiones e intereses de los individuos en el día a día."},
-    {"name": "Deportes", "description":"Mantenerse en forma siempre será primordial para tener una vida sana, y pues estar enterado del mundo del deporte y participar en discusiones."},
-    {"name": "Geek", "description":""},
+    {
+        "name": "Tecnologia", 
+        "description": "Podrás indagar acerca de las últimas novedades de las tecnologías y estar a la vanguardia de la misma en todos los entornos del mundo.", 
+        "url": "https://s3-us-west-2.amazonaws.com/sintec-uploads/wp-content/uploads/2019/07/02124347/SAP-DDM-II-1.jpg"
+    },
+    {
+        "name": "Economía", 
+        "description": "Sabemos que el mundo gira alrededor del dinero y los recursos con los que con él, las sociedades prosperan surgen y sobreviven en el vasto capitalismo.",
+        "url":"https://conceptodefinicion.de/wp-content/uploads/2019/08/C_Econom%C3%ADa.jpg"
+    },
+    {
+        "name": "Politica", 
+        "description":"Es la ciencia social que estudia el poder público o del Estado. Promoviendo la participación ciudadana al poseer la capacidad de distribuir y ejecutar el poder según sea necesario para garantizar el bien común en la sociedad. Y como ciudadano tu aporte es importante.",
+        "url":"https://www.ipade.mx/wp-content/uploads/2019/05/1-24.jpg"
+    },
+    {
+        "name": "Redes sociales", 
+        "description":"En este mundo globalizado, el impacto de las estructuras de información desempeña un papel sumamente importante en la toma de decisiones e intereses de los individuos en el día a día.",
+        "url":"https://digitalisthub.com/wp-content/uploads/2019/11/2.jpg"
+    },
+    {
+        "name": "Deportes", 
+        "description":"Mantenerse en forma siempre será primordial para tener una vida sana, y pues estar enterado del mundo del deporte y participar en discusiones.",
+        "url":"https://cdn.tn.com.ar/sites/default/files/styles/1366x765/public/2017/02/08/shutterstock_deportes_g.jpg"
+    },
+    {
+        "name": "Geek", "description":""},
     {"name": "Cultura", "description":""},
     {"name": "Entretenimiento", "description":""},
     {"name": "Gastronomía", "description":""},

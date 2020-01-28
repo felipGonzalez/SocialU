@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ModelInterest } from 'src/app/models/ModelInterest';
+import { UserService } from 'src/app/services/user/user.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-new-category',
@@ -11,14 +13,22 @@ export class NewCategoryComponent implements OnInit {
 
   public category: ModelInterest;
 
-  constructor() { }
+  constructor(private service: UserService, private dialog: MatDialogRef<NewCategoryComponent>) { }
 
   ngOnInit() {
-    this.category = new ModelInterest("","");
+    this.category = new ModelInterest();
   }
 
   public send() {
-    
+    this.service.saveCategory(this.category).subscribe(
+      res =>{
+        console.log(res);
+        this.dialog.close();
+      },
+      err=>{
+        alert("error al cargar temas");
+      }
+    );
   }
 
   /**
@@ -28,9 +38,7 @@ export class NewCategoryComponent implements OnInit {
     return this.titleFormControl.invalid || this.contentFormControl.invalid;
   }
 
-  public titleFormControl = new FormControl('', [Validators.required,
-    Validators.maxLength(30)
-    ]);
-  
-    public contentFormControl = new FormControl('', [Validators.required]);
+  public titleFormControl = new FormControl('', [Validators.required,Validators.maxLength(30)]);
+  public contentFormControl = new FormControl('', [Validators.required]);
+  public urlFormControl = new FormControl('', [Validators.required]);
 }
