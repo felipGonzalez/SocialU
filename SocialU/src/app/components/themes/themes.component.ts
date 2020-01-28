@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModelCategory } from 'src/app/models/ModelCategory';
 import { CategoryService } from 'src/app/services/category/category.service';
+import { MatDialog } from '@angular/material';
+import { NewCategoryComponent } from 'src/app/components/new-category/new-category.component';
 
 @Component({
   selector: 'app-themes',
@@ -11,7 +13,7 @@ export class ThemesComponent implements OnInit {
 
   categoryList: Array<ModelCategory>;
 
-  constructor(private serve: CategoryService) {
+  constructor(private serve: CategoryService, private dialog: MatDialog) {
     this.categoryList = new Array<ModelCategory>();
     this.categoryList.push(new ModelCategory("1","Tecnologia", "Esta categoría es un contenedor general, utilizado para organizar categorías más precisas. Por su naturaleza amplia, solo deben aparecer en ella los artículos muy generales. Por favor, utiliza en lo posible alguna de las subcategorías", "https://www.bbva.com/wp-content/uploads/2018/06/fintech-tecnologia-innovacion-digital-blockchain-bbva_opt-1024x431.jpg"));
     this.categoryList.push(new ModelCategory("2","Cine", "Esta categoría es un contenedor general, utilizado para organizar categorías más precisas. Por su naturaleza amplia, solo deben aparecer en ella los artículos muy generales. Por favor, utiliza en lo posible alguna de las subcategorías", "https://www.bbva.com/wp-content/uploads/2018/06/fintech-tecnologia-innovacion-digital-blockchain-bbva_opt-1024x431.jpg"));
@@ -35,7 +37,9 @@ export class ThemesComponent implements OnInit {
    * newCategory
    */
   public newCategory() {
-    alert("Nueva categoria");
+    const dialogRef = this.dialog.open(NewCategoryComponent, {
+      autoFocus: true,
+    });
   }
 
   /**

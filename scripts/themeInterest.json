@@ -1,15 +1,15 @@
 [
-    {"name": "Tecnologia"},
-    {"name": "Economía"},
-    {"name": "Politica"},
-    {"name": "Video"},
-    {"name": "Deportes"},
-    {"name": "Geek"},
-    {"name": "Cultura"},
-    {"name": "Entretenimiento"},
-    {"name": "Gastronomía"},
-    {"name": "Musica"},
-    {"name": "Peliculas"},
-    {"name": "Series"},
-    {"name": "Ciencia"}
+    {"name": "Tecnologia", "description": "Podrás indagar acerca de las últimas novedades de las tecnologías y estar a la vanguardia de la misma en todos los entornos del mundo."},
+    {"name": "Economía", "description": "Sabemos que el mundo gira alrededor del dinero y los recursos con los que con él, las sociedades prosperan surgen y sobreviven en el vasto capitalismo."},
+    {"name": "Politica", "description":"Es la ciencia social que estudia el poder público o del Estado. Promoviendo la participación ciudadana al poseer la capacidad de distribuir y ejecutar el poder según sea necesario para garantizar el bien común en la sociedad. Y como ciudadano tu aporte es importante."},
+    {"name": "Redes sociales", "description":"En este mundo globalizado, el impacto de las estructuras de información desempeña un papel sumamente importante en la toma de decisiones e intereses de los individuos en el día a día."},
+    {"name": "Deportes", "description":"Mantenerse en forma siempre será primordial para tener una vida sana, y pues estar enterado del mundo del deporte y participar en discusiones."},
+    {"name": "Geek", "description":""},
+    {"name": "Cultura", "description":""},
+    {"name": "Entretenimiento", "description":""},
+    {"name": "Gastronomía", "description":""},
+    {"name": "Musica", "description":""},
+    {"name": "Peliculas", "description":""},
+    {"name": "Series", "description":""},
+    {"name": "Ciencia", "description":""}
 ]

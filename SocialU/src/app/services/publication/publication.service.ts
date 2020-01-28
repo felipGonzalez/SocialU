@@ -1,0 +1,22 @@
+import { ModelPublication } from 'src/app/models/ModelPublication';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HTTP_URL_MONGO } from 'src/app/models/httpStatus';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PublicationService {
+
+  constructor(private http: HttpClient) { }
+
+  public getPublicationList(): Observable<Array<ModelPublication>> {
+    return this.http.get<Array<ModelPublication>>(`${HTTP_URL_MONGO}publication`);
+  }
+
+  public savePublication(publication: ModelPublication): Observable<any> {
+    return this.http.post<any>(`${HTTP_URL_MONGO}publication/savePublication`, publication);
+  }
+  
+}
