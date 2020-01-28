@@ -29,8 +29,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { ThemesComponent } from './components/themes/themes.component';
 import { FriendsComponent } from './components/friends/friends.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { NewPublicacitonComponent } from './new-publicaciton/new-publicaciton.component';
-import { AutorViewComponent } from './autor-view/autor-view.component';
+import { NewPublicacitonComponent } from './components/new-publicaciton/new-publicaciton.component';
+import { AutorViewComponent } from './components/autor-view/autor-view.component';
 
 @NgModule({
   declarations: [

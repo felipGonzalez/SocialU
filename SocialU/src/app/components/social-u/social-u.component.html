@@ -25,13 +25,10 @@
                     <div class="col-12">
                         <form>
 
-                            <!--div class="alert alert-danger" role="alert" *ngIf="!isCorrect">
-                                          {{message}}
-                                    </div-->
                             <div class="form-group">
                                 <mat-form-field class="full-width">
                                     <input matInput #email placeholder="Ingrese su correo electrónico"
-                                        [formControl]="emailFormControl" name="email">
+                                        [formControl]="emailFormControl" [(ngModel)]="user.email" name="email">
                                     <mat-error
                                         *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                         Por favor ingrese un correo valido
@@ -45,7 +42,7 @@
                             <div class="form-group">
                                 <mat-form-field class="full-width">
                                     <input matInput type="password" #password placeholder="Ingrese su Contraseña"
-                                        [formControl]="passworFormControl" name="password">
+                                        [formControl]="passworFormControl" [(ngModel)]="user.password" name="password">
                                     <mat-error
                                         *ngIf="passworFormControl.hasError('password') && !passworFormControl.hasError('required')">
                                         Por favor ingrese una contraseña valida

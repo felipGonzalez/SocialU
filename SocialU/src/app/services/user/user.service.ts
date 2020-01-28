@@ -12,12 +12,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public login(email: string, password: string): Observable<any>{
-    let postData = new FormData();
-    postData.append('email', email);
-    postData.append('password', password);
-    return this.http.post<any>(HTTP_URL_REDIS, postData);
-  }
+  
 
   /**
    * getinterestList
@@ -30,6 +25,14 @@ export class UserService {
    * saveUser
    */
   public saveUser(user: ModelUser): Observable<any> {
-    return this.http.post<any>(`${HTTP_URL_MONGO}saveUser`, user);
+    return this.http.post<any>(`${HTTP_URL_MONGO}user/saveUser`, user);
   }
+
+  /**
+   * iniciar sesion de usuario
+   */
+
+  public login(user:ModelUser): Observable<ModelUser> {
+    return this.http.post<ModelUser>(`${HTTP_URL_MONGO}user/initSesion`,user);
+  } 
 }

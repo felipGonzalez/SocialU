@@ -1,8 +1,9 @@
-import { AutorViewComponent } from './../../autor-view/autor-view.component';
-import { NewPublicacitonComponent } from './../../new-publicaciton/new-publicaciton.component';
+
+import { NewPublicacitonComponent } from '../new-publicaciton/new-publicaciton.component';
 import { Component, OnInit } from '@angular/core';
 import { ModelPublication } from 'src/app/models/ModelPublication';
 import { MatDialog } from '@angular/material';
+import { AutorViewComponent } from '../autor-view/autor-view.component';
 
 @Component({
   selector: 'app-homepage',
