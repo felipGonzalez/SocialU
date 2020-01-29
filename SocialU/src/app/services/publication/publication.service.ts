@@ -1,3 +1,4 @@
+import { HTTP_URL_CASSANDRA } from './../../models/httpStatus';
 import { ModelPublication } from 'src/app/models/ModelPublication';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -12,11 +13,11 @@ export class PublicationService {
   constructor(private http: HttpClient) { }
 
   public getPublicationList(): Observable<Array<ModelPublication>> {
-    return this.http.get<Array<ModelPublication>>(`${HTTP_URL_MONGO}publication`);
+    return this.http.get<Array<ModelPublication>>(`${HTTP_URL_CASSANDRA}publication`);
   }
 
   public savePublication(publication: ModelPublication): Observable<any> {
-    return this.http.post<any>(`${HTTP_URL_MONGO}publication/savePublication`, publication);
+    return this.http.post<any>(`${HTTP_URL_CASSANDRA}savePublication`, publication);
   }
   
 }

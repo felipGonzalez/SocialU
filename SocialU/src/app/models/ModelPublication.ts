@@ -2,18 +2,19 @@ import { ModelComment } from './ModelComment';
 
 export class ModelPublication {
 
-    _id: string;
+    id: string;
     id_user: string;
     title: string;
     content: string;
     author: string;
-    date: Date;
+    date: string;
     category: string;
-    comments: Array<ModelComment>;
+    likes: number;
+  //  comments: Array<ModelComment>;
 
     constructor(id_user: string, author: string) {
         this.id_user = id_user;
         this.author = author;
-        this.comments = new Array<ModelComment>();
+    //    this.comments = new Array<ModelComment>();
     }
 }

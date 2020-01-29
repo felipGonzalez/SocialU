@@ -7,6 +7,7 @@ import { ModelPublication } from 'src/app/models/ModelPublication';
 import { ModelInterest } from 'src/app/models/ModelInterest';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-new-publicaciton',
@@ -51,7 +52,9 @@ export class NewPublicacitonComponent implements OnInit {
    */
   public send() {
     console.log("Publicacion: ", this.publication);
-    this.publication.date = new Date();
+    this.publication.date = new Date().toISOString().slice(0,10);
+    console.log("Esta es la fecha: ", this.publication.date);
+    
     this.servicePublication.savePublication(this.publication).subscribe(
       res => {
         console.log("Enviada");
