@@ -10,6 +10,7 @@ import { HTTP_URL_MONGO } from 'src/app/models/httpStatus';
 })
 export class PublicationService {
 
+
   constructor(private http: HttpClient) { }
 
   public getPublicationList(): Observable<Array<ModelPublication>> {
@@ -17,7 +18,10 @@ export class PublicationService {
   }
 
   public savePublication(publication: ModelPublication): Observable<any> {
-    return this.http.post<any>(`${HTTP_URL_CASSANDRA}savePublication`, publication);
+    return this.http.post<any>(`${HTTP_URL_MONGO}publication/savePublication`, publication);
   }
-  
+
+  public sendLike(id: string, likes: number): Observable<any> {
+    return this.http.post<any>(`${HTTP_URL_MONGO}publication/sendLike`, {id, likes});
+  }
 }

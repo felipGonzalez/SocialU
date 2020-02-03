@@ -32,7 +32,6 @@ export class HomepageComponent implements OnInit {
       },
       err => {
         console.log(err);
-        
       }
     );
   }
@@ -55,7 +54,15 @@ export class HomepageComponent implements OnInit {
   /**
    * like
    */
-  public like() {
-    alert("Is liked");
+  public like(id:string, likes: number) {
+    this.serve.sendLike(id, (likes+1)).subscribe(
+      res =>{
+        console.log(res);
+        
+      },
+      err=>{
+        alert("error al enviar");
+      }
+    )
   }
 }

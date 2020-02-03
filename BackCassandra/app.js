@@ -1,7 +1,8 @@
 var express = require("express");
 var cassandra = require('cassandra-driver');
-var client = new cassandra.Client({ contactPoints: ['127.0.0.1:9042'],localDataCenter: 'datacenter1', keyspace: 'socialu' });
+var client = new cassandra.Client({ contactPoints: ['127.0.0.1:9042'], localDataCenter: 'datacenter1', keyspace: 'socialu' });
 var cors = require('cors');
+var axios = require('axios');
 const app = express();
 
 var bodyParser = require('body-parser');
@@ -15,11 +16,38 @@ client.connect(function (err, result) {
 });
 
 var getPublications = 'SELECT * FROM publication';
-var insertPublication = 'insert into publication (id, id_user, title, content, author, date, category) values (?,?,?,?,?,?,?)'
+var insertPublication = 'insert into publication (id, id_user, title, content, author, date, category, likes, comments) values (?,?,?,?,?,?,?,?,?)'
+var insert = `INSERT INTO publication '`
 
 
 app.get('/publication', (req, res) => {
+    axios.get('http://localhost:3000/publication')
+        .then(response => {
+            console.log("respuesta desde mongo");
+            saveInCassandra(response.data, res);
+        })
+        .catch(e => {
+            console.log("error al cargar de mongo");
+        });
+});
 
+function saveInCassandra(data, res) {
+    data.forEach(element => {
+        console.log(element);
+        
+        client.execute(insertPublication, [element._id, element.id_user, element.title, element.content, element.author, element.date, element.category, element.likes, element.comments], { prepare: true }, function (err, result) {
+            if (err) {
+                console.log(err);
+
+            } else {
+                console.log("sin error");
+            }
+        });
+    });
+    sendData(res);
+}
+
+function sendData(res) {
     client.execute(getPublications, [], function (err, result) {
         if (err) {
             res.status(404).send({ message: "error al cargar" });
@@ -27,7 +55,7 @@ app.get('/publication', (req, res) => {
             res.send(result.rows);
         }
     });
-});
+}
 
 /*
 app.post('/savePublication', (req, res) => {

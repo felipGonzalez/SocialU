@@ -34,3 +34,29 @@
     {"name": "Series", "description":""},
     {"name": "Ciencia", "description":""}
 ]
+
+//   publicaciones
+
+[
+    {
+        "id_user": "5e2f859612fb7028e8ee690c",
+        "title": "titulo de ejemplo",
+        "content": "Este es el contenido de la publicacion",
+        "author": "felipSen",
+        "date": "2020-01-29",
+        "category": "Deportes",
+        "likes": 3,
+        "comments": ["muy interesante", "no me parece"]
+    },
+
+    {
+        "id_user": "5e2f859612fb7028e8ee690c",
+        "title": "titulo #2",
+        "content": "Este es el contenido de la publicacion nueva de ejemplo",
+        "author": "felipSen",
+        "date": "2020-01-30",
+        "category": "Politica",
+        "likes": 3,
+        "comments": ["Comentario 1", "Comentario 2"]
+    }
+]
