@@ -129,10 +129,7 @@ export class RegistryComponent implements OnInit {
   /**
    * saveUser
    */
-  public saveUser() {
-    
-    
-    
+  public saveUser() {   
     this.serve.saveUser(this.user).subscribe(
       res => {
         console.log(res.ops)
@@ -142,10 +139,24 @@ export class RegistryComponent implements OnInit {
           
         }else {
           if(res.ops.length > 0){
-            console.log(res.ops)
-            sessionStorage.setItem("user", JSON.stringify(res.ops[0]));
-            this.router.navigateByUrl('/home/homePage');
-            this.dialogRef.close();
+            console.log("Guardo en mongo")
+            var dataUser = res.ops[0]
+           this.serve.saveUserNeo4j(res.ops[0]).subscribe(
+              res => {
+                
+                    console.log("Guardo en neo4j");
+                    
+                    sessionStorage.setItem("user", JSON.stringify(dataUser));
+                    this.router.navigateByUrl('/home/homePage');
+                    this.dialogRef.close();
+          
+                 
+               },
+              err => {
+                alert("Error al agregar usuario")
+              }
+
+            )
           }
         }
              

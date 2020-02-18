@@ -1,0 +1,19 @@
+create ( p: Person {name: "felipe"}) return p
+
+Retornar perosna
+match (p:Person) where p.name = "felipe" return p
+
+// Retornar todos
+match (p) return p
+
+// Crear relaciones
+match (p1:Person), (p2:Person) where p1.name = "felipe" and p2.name = "fabian" create (p1)-[f:follow {date:"18/02/2020"}]->(p2) return p1,p2,f
+
+//Obtener relaciones 
+match (p1:Person)-[f:follow]->(p2:Person) where p1.name = "felipe" return p2
+
+// Borrar unico nodo
+match (p:Person) where p.name = "fabian" delete p return p
+
+// Borar con todos los nodos 
+match (p:Person) where p.name = "fabian" detach delete p return p
