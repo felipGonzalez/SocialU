@@ -3,9 +3,11 @@ import { PublicationService } from './../../services/publication/publication.ser
 import { NewPublicacitonComponent } from '../new-publicaciton/new-publicaciton.component';
 import { Component, OnInit } from '@angular/core';
 import { ModelPublication } from 'src/app/models/ModelPublication';
+import { ModelComment } from 'src/app/models/ModelComment';
 import { MatDialog } from '@angular/material';
 import { AutorViewComponent } from '../autor-view/autor-view.component';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -15,10 +17,16 @@ import { FormControl, Validators } from '@angular/forms';
 export class HomepageComponent implements OnInit {
 
   publicationList: Array<ModelPublication>;
-  //newComment: ModelComment;
+  comment: ModelComment;
 
-  constructor(private dialog: MatDialog, private serve: PublicationService) {
+  constructor(private dialog: MatDialog, private serve: PublicationService, private router: Router) {
     this.publicationList = new Array<ModelPublication>();
+    if (sessionStorage.getItem('user')) {
+      let user = JSON.parse(sessionStorage.getItem('user'));
+     this.comment = new ModelComment(user.nameUser);
+    } else {
+      this.router.navigateByUrl('/');
+    }
   }
 
   ngOnInit() {
@@ -75,6 +83,6 @@ export class HomepageComponent implements OnInit {
   }
 
   public saveComment(){
-    alert("Guardar Comment");
+    alert("Guardar Comment" + this.comment.autor_comment);
   }
 }
