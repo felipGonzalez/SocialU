@@ -42,4 +42,11 @@ export class UserService {
   public login(user:ModelUser): Observable<ModelUser> {
     return this.http.post<ModelUser>(`${HTTP_URL_MONGO}user/initSesion`,user);
   } 
+
+  /**
+   * updateUser
+   */
+  public updateUser(user: ModelUser) {
+    return this.http.put<ModelUser>(`${HTTP_URL_MONGO}user/updateUser`, user);
+  }
 }

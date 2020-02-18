@@ -7,7 +7,6 @@ import { ModelPublication } from 'src/app/models/ModelPublication';
 import { ModelInterest } from 'src/app/models/ModelInterest';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-new-publicaciton',

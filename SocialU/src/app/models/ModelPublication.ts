@@ -10,12 +10,12 @@ export class ModelPublication {
     date: string;
     category: string;
     likes: number;
-    comments: Array<string>;
+    comments: Array<ModelComment>;
 
     constructor(id_user: string, author: string) {
         this.id_user = id_user;
         this.author = author;
-        this.comments = new Array<string>();
+        this.comments = new Array<ModelComment>();
         this.likes = 0;
     }
 }

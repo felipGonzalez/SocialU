@@ -55,4 +55,12 @@ router.post('/initSesion', (req, res) => {
   });
 });
 
+router.put('/updateUser', (req, res) =>{
+  console.log(req.body);
+  
+  dbConnection.updateConsulta({"_id":req.body._id},req.body,dbCollectionUser,(documents) =>{
+    res.send(documents[0]);
+  })
+});
+
 module.exports = router;

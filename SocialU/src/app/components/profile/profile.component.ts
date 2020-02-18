@@ -1,6 +1,6 @@
+import { UserService } from './../../services/user/user.service';
 import { ModelUser } from './../../models/ModelUser';
 import { Component, OnInit } from '@angular/core';
-import { ModelInterest } from 'src/app/models/ModelInterest';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,10 +13,10 @@ export class ProfileComponent implements OnInit {
   public user: ModelUser;
   public confirmPass: string;
 
-  constructor(private router:Router) {
+  constructor(private router: Router, private service: UserService) {
     if (sessionStorage.getItem('user')) {
       console.log("Existe");
-      
+
       this.user = JSON.parse(sessionStorage.getItem('user'));
     } else {
       this.router.navigateByUrl('/');
@@ -24,18 +24,21 @@ export class ProfileComponent implements OnInit {
 
     console.log(this.user);
 
-    
-    
-    }
+
+
+  }
 
   ngOnInit() {
   }
 
-  saveData(){
-
-    
-
-
+  saveData() {
+    this.service.updateUser(this.user).subscribe(
+      res => {
+        console.log("esto responde", res);
+      },
+      error => {
+        alert("Error al editas");
+      })
   }
 
 }
