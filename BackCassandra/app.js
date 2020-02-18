@@ -17,34 +17,47 @@ client.connect(function (err, result) {
 
 var getPublications = 'SELECT * FROM publication';
 var insertPublication = 'insert into publication (id, id_user, title, content, author, date, category, likes, comments) values (?,?,?,?,?,?,?,?,?)'
-var insert = `INSERT INTO publication '`
+var truncate = 'Truncate publication;';
 
 
 app.get('/publication', (req, res) => {
-    axios.get('http://localhost:3000/publication')
-        .then(response => {
-            console.log("respuesta desde mongo");
-            saveInCassandra(response.data, res);
-        })
+    axios.get('http://localhost:3000/publication').then(response => {
+        console.log("respuesta desde mongo");
+        saveInCassandra(response.data, res);
+    })
         .catch(e => {
             console.log("error al cargar de mongo");
         });
 });
 
 function saveInCassandra(data, res) {
+    client.execute(truncate, [], {}, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            load(data, res);
+        }
+    });
+}
+
+function load(data, res) {
+    var cont = 0;
+
     data.forEach(element => {
-        console.log(element);
-        
         client.execute(insertPublication, [element._id, element.id_user, element.title, element.content, element.author, element.date, element.category, element.likes, element.comments], { prepare: true }, function (err, result) {
             if (err) {
                 console.log(err);
-
             } else {
+                cont = cont +1;
+                if(cont === data.length){
+                    sendData(res);
+                }
                 console.log("sin error");
+                
             }
         });
     });
-    sendData(res);
+    
 }
 
 function sendData(res) {
