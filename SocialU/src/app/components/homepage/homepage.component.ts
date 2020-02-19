@@ -17,16 +17,10 @@ import { Router } from '@angular/router';
 export class HomepageComponent implements OnInit {
 
   publicationList: Array<ModelPublication>;
-  comment: ModelComment;
+  commentData: string = "";
 
   constructor(private dialog: MatDialog, private serve: PublicationService, private router: Router) {
     this.publicationList = new Array<ModelPublication>();
-    if (sessionStorage.getItem('user')) {
-      let user = JSON.parse(sessionStorage.getItem('user'));
-     this.comment = new ModelComment(user.nameUser);
-    } else {
-      this.router.navigateByUrl('/');
-    }
   }
 
   ngOnInit() {
@@ -50,22 +44,30 @@ export class HomepageComponent implements OnInit {
     const dialogRef = this.dialog.open(NewPublicacitonComponent, {
       autoFocus: true,
     });
+    dialogRef.afterClosed().subscribe(result => {
+      this.loadPublicationList();
+    });
   }
 
   openUser(id: string) {
-    const dialogRef = this.dialog.open(AutorViewComponent, {
-      autoFocus: true,
-      maxHeight: "300px",
-      maxWidth: "150px",
-      panelClass: "user-class"
-    });
+    let user = JSON.parse(sessionStorage.getItem('user'));
+    if (id !== user._id) {
+      const dialogRef = this.dialog.open(AutorViewComponent, {
+        autoFocus: true,
+        maxHeight: "300px",
+        maxWidth: "150px",
+        panelClass: "user-class",
+        data: { id }
+      });
+    }
   }
 
   /**
    * like
    */
-  public like(id: string, likes: number) {
-    this.serve.sendLike(id, (likes + 1)).subscribe(
+  public like(item: ModelPublication) {
+    item.likes = (item.likes + 1);
+    this.serve.sendLike(item).subscribe(
       res => {
         console.log(res);
 
@@ -82,7 +84,22 @@ export class HomepageComponent implements OnInit {
     return this.commentFormControl.invalid;
   }
 
-  public saveComment(){
-    alert("Guardar Comment" + this.comment.autor_comment);
+  public saveComment(publication: ModelPublication) {
+    console.log("comentario de: ", publication);
+
+    if (publication.comments == null) {
+      publication.comments = new Array<string>();
+    }
+    publication.comments.push(this.commentData);
+    this.serve.saveComment(publication).subscribe(
+      res => {
+        console.log(res);
+        this.commentData = "";
+
+      },
+      err => {
+
+      }
+    );
   }
 }

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var dbConnection = require('../connection/Connection');
 const collectionPublication = 'publication';
-
+const { ObjectId } = require('mongodb');
 
 router.get('/', (req, res) => {
   dbConnection.getConsulta({}, collectionPublication, (documentos) => {
@@ -29,8 +29,18 @@ router.post('/savePublication', function (req, res) {
 //like de la publicacion
 router.post('/sendLike', function (req, res) {
   console.log("Entra a guardar like", req.body);
-  dbConnection.updateConsulta(`_id:${req.body.id}`, `$set : {${req.body.likes}}`, collectionPublication, (documentos) => {
-    res.send(documentos);
+  dbConnection.updateConsulta({ _id: ObjectId(req.body.id) }, req.body, collectionPublication, (documentos) => {
+    console.log(documentos[0]);
+    res.send(documentos[0]);
+  });
+});
+
+//comentarios de la publicacion
+router.post('/saveComments', function (req, res) {
+  console.log("Entra a guardar comentario", req.body);
+  dbConnection.updateConsulta({ _id: ObjectId(req.body.id) }, req.body, collectionPublication, (documentos) => {
+    console.log(documentos[0]);
+    res.send(documentos[0]);
   });
 });
 

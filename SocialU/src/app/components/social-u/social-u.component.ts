@@ -28,7 +28,7 @@ export class SocialUComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private serve: UserService, private router: Router) {
     this.user = new ModelUser();
-    this.initUser();
+    //this.initUser();
    }
 
   ngOnInit() {
@@ -49,6 +49,7 @@ export class SocialUComponent implements OnInit {
   loadUser(){
    console.log("Datos enviados");
     console.log(this.user);
+    
     
    this.serve.login(this.user).subscribe(
      res =>{

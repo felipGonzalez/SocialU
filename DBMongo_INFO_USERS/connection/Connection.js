@@ -2,6 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017/';
 const dbName = 'electiva2';
 const assert = require('assert');
+const objectId = require('mongodb').ObjectID;
 
 var getConsulta = function (query, collectionName, callback) {
   MongoClient.connect(url + dbName, function (err, client) {
@@ -19,6 +20,7 @@ var saveConsulta = function (query, collectionName, callback) {
 
 var updateConsulta = function (query, newData, collectionName, callback) {
   MongoClient.connect(url + dbName, function (err, client) {
+    
     const db = client.db(dbName);
     updateDocuments(query, newData, db, collectionName, callback);
   })
@@ -26,10 +28,18 @@ var updateConsulta = function (query, newData, collectionName, callback) {
 
 const updateDocuments = function (query, newData, db, collectionName, callback) {
   const collection = db.collection(collectionName);
-  collection.update({query}, newData, function (err, docs) {
+  console.log("Query: ", query);
+  console.log("Data: ", newData);
+  
+  
+  collection.update(query, newData,{ upsert: true }, function (err, docs) {
     if (err) {
+      console.log(err);
+      
       console.log("error al actualizar");
     } else {
+      console.log("actualiza");
+      
       callback(docs);
     }
   });

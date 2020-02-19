@@ -21,7 +21,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
   MatCardModule, MatCheckboxModule, MatChipsModule, MatStepperModule, MatDatepickerModule, MatDialogModule, MatDividerModule,
   MatExpansionModule, MatInputModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule,
   MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule,
-  MatSortModule, MatTabsModule, MatTooltipModule, MatTreeModule, MAT_LABEL_GLOBAL_OPTIONS} from '@angular/material';
+  MatSortModule, MatTabsModule, MatTooltipModule, MatTreeModule, MAT_LABEL_GLOBAL_OPTIONS, MAT_DIALOG_DATA} from '@angular/material';
 import { SocialUComponent } from './components/social-u/social-u.component';
 import { RegistryComponent } from './components/registry/registry.component';
 import { HomeComponent } from './components/home/home.component';

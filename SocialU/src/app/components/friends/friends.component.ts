@@ -1,5 +1,7 @@
+import { UserService } from 'src/app/services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { ModelFriend } from 'src/app/models/ModelFriend';
+import { ModelUser } from 'src/app/models/ModelUser';
 
 @Component({
   selector: 'app-friends',
@@ -10,22 +12,31 @@ export class FriendsComponent implements OnInit {
 
   friendsList: Array<ModelFriend>;
 
-  constructor() {
+  constructor(private service: UserService) {
     this.friendsList = new Array<ModelFriend>();
-    console.log(this.friendsList);
-    for (let i = 1; i < 10; i++) {
-      this.friendsList.push(new ModelFriend(`Nombre de usuario del amigo # ${i}`, `firstName del amigo # ${i}`,
-        `LastName del amigo # ${i}`, `Genero del amigo # ${i}`,
-        `Cumpleaños del amigo # ${i}`, `carrera del amigo # ${i}`,
-        `Email del amigo # ${i}`, `telefono del amigo # ${i}`));
-
-    }
-    console.log(this.friendsList);
-
   }
 
   ngOnInit() {
     console.log("En el onInit");
+    console.log(this.friendsList);
+    this.getFollow();
+  }
+
+  public getFollow() {
+    let user = JSON.parse(sessionStorage.getItem('user'));
+    this.service.getFollow(user.nameUser).subscribe(
+      res => {
+        console.log("Llego respuesta", res);
+        for (let i = 0; i < res.length; i++) {
+          let user = new ModelUser()
+          user = res[i]._fields[0].properties;
+          console.log("Amigo: ", user);
+          
+          this.friendsList.push(user);
+        }
+      },
+      err => { }
+    )
     console.log(this.friendsList);
     
   }

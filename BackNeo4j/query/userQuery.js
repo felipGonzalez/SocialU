@@ -15,14 +15,15 @@ exports.saveUser = (req, res) => {
     });
     
 };
-/*
-exports.followPerson = (req, res) => {
+
+exports.followUser = (req, res) => {
+    
     const session = driver.session();
-    const {nickname, followNickname, knowDate, likes} = req.body;
-    session.run(`MATCH (a:Person {nickname: $nickname}), (b:Person {nickname: $followNickname})
-                        CREATE (a)-[f:Follow {knowDate: $knowDate, likes: $likes}]->(b)
+    const {nameUser, followNameUser, followDate} = req.body;
+    session.run(`MATCH (a:User {nameUser: $nameUser}), (b:User {nameUser: $followNameUser})
+                        CREATE (a)-[f:Follow {followDate: $followDate}]->(b)
                         RETURN f`,
-        {nickname: nickname, followNickname: followNickname , knowDate: knowDate, likes: likes})
+        {nameUser: nameUser, followNameUser: followNameUser , followDate: followDate})
         .then(result => {
             res.json(result.records);
         }).catch(err => {
@@ -31,12 +32,30 @@ exports.followPerson = (req, res) => {
     });
 };
 
-exports.unfollowPerson = (req, res) => {
+exports.userFollow = (req, res) => {
     const session = driver.session();
-    const {nickname, followNickname} = req.body;
-    session.run(`MATCH (:Person {nickname: $nickname})-[r:Follow]->(:Person {nickname: $followNickname})
+    const {nameUser} = req.body;
+    console.log(nameUser);
+    
+    session.run(`match (u1:User)-[f:Follow]->(u2:User) where u1.nameUser = $nameUser return u2`,
+        {nameUser: nameUser})
+        .then(result => {
+            console.log("Seguidos");
+            console.log(result);
+                      
+            res.json(result.records);
+        }).catch(err => {
+        console.log(err);
+        res.json({message: 'Error en la consultar los seguidos'})
+    });
+};
+
+exports.deleteFollow = (req, res) => {
+    const session = driver.session();
+    const {nameUser, followNameUser} = req.body;
+    session.run(`MATCH (:User {nameUser: $nameUser})-[r:Follow]->(:User {nameUser: $followNameUser})
                         DELETE r`,
-        {nickname: nickname, followNickname: followNickname})
+        {nameUser: nameUser, followNameUser: followNameUser})
         .then(result => {
             res.json(result.records);
         }).catch(err => {
@@ -45,30 +64,3 @@ exports.unfollowPerson = (req, res) => {
     });
 };
 
-exports.personsFollow = (req, res) => {
-    const session = driver.session();
-    const {nickname} = req.body;
-    session.run(`MATCH (a:Person {nickname: $nickname})-->(persons:Person)
-                        RETURN persons`,
-        {nickname: nickname})
-        .then(result => {
-            res.json(result.records);
-        }).catch(err => {
-        console.log(err);
-        res.json({message: 'Error en la consultar los seguidos'})
-    });
-};
-
-exports.deletePerson = (req, res) => {
-    const session = driver.session();
-    const nickname = req.body.nickname;
-    session.run(`MATCH (a:Person {nickname: $nickname})
-                        DETACH DELETE a`,
-        {nickname: nickname})
-        .then(result => {
-            res.json(result.records);
-        }).catch(err => {
-        console.log(err);
-        res.json({message: 'Error al eliminar'})
-    });
-};*/

@@ -34,6 +34,8 @@ export class ProfileComponent implements OnInit {
   saveData() {
     this.service.updateUser(this.user).subscribe(
       res => {
+        this.user = res;
+        sessionStorage.setItem("user", JSON.stringify(res));
         console.log("esto responde", res);
       },
       error => {

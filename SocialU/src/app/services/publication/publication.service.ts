@@ -21,7 +21,11 @@ export class PublicationService {
     return this.http.post<any>(`${HTTP_URL_MONGO}publication/savePublication`, publication);
   }
 
-  public sendLike(id: string, likes: number): Observable<any> {
-    return this.http.post<any>(`${HTTP_URL_MONGO}publication/sendLike`, {id, likes});
+  public sendLike(publication: ModelPublication): Observable<any> {
+    return this.http.post<any>(`${HTTP_URL_MONGO}publication/sendLike`, publication);
+  }
+
+  public saveComment(publication: ModelPublication): Observable<any>{
+  return this.http.post<Array<ModelPublication>>(`${HTTP_URL_MONGO}publication/saveComments`, publication);
   }
 }

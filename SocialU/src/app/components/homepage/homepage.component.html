@@ -17,7 +17,7 @@
                         <p class="card-text">{{item.content}}</p>
                         <div class="row float-right">
                             <div class="">
-                                <button class="btn btn-outline-success" (click)="like(item.id, item.likes)">
+                                <button class="btn btn-outline-success" (click)="like(item)">
                                     {{item.likes}}
                                     <i class="fa fa-thumbs-up"></i>
                                 </button>
@@ -34,29 +34,21 @@
                             </div>
                             <div class="col-11">
                                 <div class="card">
-                                    <h6 class="card-title autor_comment" style="margin: 0px">
-                                        {{comment.autor_comment}}
-                                    </h6>
                                     <div class="card-body">
-                                        <p class="card-text" style="margin: 0px">{{comment.comment}}</p>
+                                        <p class="card-text" style="margin: 0px">{{comment}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="addComment">
-                        <form class="form">
-                            <div class="col-12">
-                                <mat-form-field class="full-width">
-                                    <textarea matInput class="form-control" [(ngModel)]="comment.comment" [formControl]="commentFormControl" id="item.id" name="item.id" class="md-textarea form-control" rows="2"
-                                        placeholder="Escribe tu comentario...">
+                        <textarea [(ngModel)]="commentData" placeholder="Ingresar comentario..."
+                            placeholder="Escribe tu comentario..." cols="20" rows="2">
                                     </textarea>
-                                </mat-form-field>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button class="btn-sm  btn-block bg-success text-light" [disabled]="validSend()" (click)="saveComment()">Comentar</button>
-                            </div>
-                        </form>
+                        <div class="col-12 text-center">
+                            <button class="btn-sm  btn-block bg-success text-light"
+                                (click)="saveComment(item)">Comentar</button>
+                        </div>
                     </div>
                 </div>
             </div>

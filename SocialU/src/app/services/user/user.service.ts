@@ -64,4 +64,34 @@ export class UserService {
   public updateUser(user: ModelUser) {
     return this.http.put<ModelUser>(`${HTTP_URL_MONGO}user/updateUser`, user);
   }
+
+  /**
+   * getDataUser
+id   */
+  public getDataUser(id: string):Observable<any> {
+    console.log("Serve ", id);
+    
+    return this.http.post<ModelUser>(`${HTTP_URL_MONGO}user/getDataUser`, {id});
+  }
+
+  /**
+   * addFollow
+   */
+  public addFollow(data: any): Observable<any> {
+    console.log(data);
+    
+    return this.http.post<any>(`${HTTP_URL_NEO4J}followUser`, data);
+  }
+
+  public deleteFollow(data: any): Observable<any> {
+    console.log(data);
+    
+    return this.http.post<any>(`${HTTP_URL_NEO4J}deleteFollow`, data);
+  }
+
+  public getFollow(nameUser: string): Observable<any> {
+    console.log(nameUser);
+    
+    return this.http.post<any>(`${HTTP_URL_NEO4J}userFollow`,  {nameUser});
+  }
 }
